@@ -1,0 +1,59 @@
+if command -v fzf >/dev/null 2>&1; then
+    source <(fzf --zsh)
+fi
+
+if command -v exa >/dev/null 2>&1; then
+    alias ll="exa -l --icons -A --group-directories-first"
+else
+    alias ll='ls -lhAt'
+fi
+
+if command -v batcat >/dev/null 2>&1; then
+    alias bat='batcat'
+fi
+
+if command -v trash >/dev/null 2>&1; then
+    alias rm="trash"
+fi
+
+if command -v pacman >/dev/null 2>&1; then
+    alias pn="sudo pacman -Sy"
+fi
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    if command -v wl-copy >/dev/null 2>&1; then
+        alias copy="wl-copy"
+        alias paste="wl-paste" 
+    fi
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    if command -v xclip >/dev/null 2>&1; then
+        alias copy="xclip -sel clip"
+        alias paste="xclip -sel clip -o" 
+    fi
+fi
+if command -v tree >/dev/null 2>&1; then
+    alias tree="tree -a --dirsfirst -L"
+fi
+
+if [[ -f ~/.zshrc ]]; then
+    alias src="source ~/.zshrc"
+fi
+
+if [[ -d ~/workspace ]]; then
+    alias cdw="cd ~/workspace"
+fi
+
+if [[ -d ~/.config ]]; then
+    alias cdc="cd ~/.config"
+fi
+
+if [[ -d ~/.shared-config ]]; then
+    alias cdsc="cd ~/.config"
+fi
+
+alias cdls="cd ~/workspace/Nexium"
+alias cdd="cd ~/Downloads"
+alias gcomm="find sources/ -name '*.cpp' -o -name '*.h' -o -name '*.hpp' -o -name '*.inl' | xargs clang-format -style=file -i && git add . && git commit -m "
+alias h="history | less"
+alias gdrivepush="rclone sync ~/.shared-config gdrive:shared-config"
+alias gdrivepull="rclone sync gdrive:shared-config ~/.shared-config"

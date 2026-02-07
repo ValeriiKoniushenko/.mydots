@@ -1,0 +1,11 @@
+[Unit]
+Description=Restic backup timer
+
+[Timer]
+OnBootSec=10min
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target
+

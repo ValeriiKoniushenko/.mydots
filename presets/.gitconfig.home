@@ -1,0 +1,22 @@
+[init]
+	defaultBranch = develop
+[user]
+	email = Valerii.Koniushenko@gmail.com
+	name = Valerii Koniushenko
+[safe]
+	directory = /
+	directory = /home/valerii/workspace/AST
+[core]
+	editor = nvim
+[push]
+	default = current
+[advice]
+	addIgnoredFile = false
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	postBuffer = 524288000
+	maxRequests = 100

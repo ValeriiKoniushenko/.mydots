@@ -1,0 +1,8 @@
+[Unit]
+Description=Restic backup
+
+[Service]
+Type=oneshot
+ExecStart=/home/valerii/.config/scripts/make_snapshot.sh OnStartup
+Environment=HOME=/root
+Environment=XDG_CACHE_HOME=/root/.cache
