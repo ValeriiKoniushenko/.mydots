@@ -79,7 +79,7 @@ require("lazy").setup({
     {
         "mfussenegger/nvim-dap"
     },
-    { 
+    {
         "rcarriga/nvim-dap-ui",
         dependencies = {
             "mfussenegger/nvim-dap", 
@@ -87,6 +87,11 @@ require("lazy").setup({
         } 
     },
     {
-
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+        },
     }
 })
