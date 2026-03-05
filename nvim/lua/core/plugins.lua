@@ -93,5 +93,66 @@ require("lazy").setup({
         dependencies = {
             "rafamadriz/friendly-snippets",
         },
+    },
+    {
+        "milanglacier/minuet-ai.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        opts = {
+            provider = "openai_fim_compatible",
+            n_completions = 1,
+            context_window = 4096,
+            throttle = 500,
+            debounce = 300,
+            provider_options = {
+                openai_fim_compatible = {
+                    api_key = "TERM",
+                    name = "qwen2.5-coder-7b-instruct-q8_0",
+                    end_point = "http://127.0.0.1:26122/v1/completions",
+                    model = "qwen2.5-coder-7b-instruct-q8_0",
+                    optional = {
+                        max_tokens = 256,
+                        stop = { "\n\n" },
+                        top_p = 0.9,
+                    },
+                },
+            },
+            virtualtext = {
+                auto_trigger_ft = { "*" },
+                keymap = {
+                    accept = "<Tab>",
+                    accept_line = "<C-y>",
+                    next = "<C-n>",
+                    prev = "<C-p>",
+                    dismiss = "<C-e>",
+                },
+            },
+        },
+    },
+    {
+        "nomnivore/ollama.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+        keys = {
+            {
+                "<leader>oo",
+                ":<c-u>lua require('ollama').prompt()<cr>",
+                desc = "Ollama prompt",
+                mode = { "n", "v" },
+            },
+            {
+                "<leader>oG",
+                ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+                desc = "Ollama generate code",
+                mode = { "n", "v" },
+            },
+        },
+        opts = {
+            model = "qwen2.5-coder-7b-instruct-q8_0",
+            url = "http://127.0.0.1:26122",
+        },
     }
 })
