@@ -18,8 +18,8 @@ require("dap").adapters.codelldb = {
   type = "server",
   port = "${port}",
   executable = {
-    -- make sure `codelldb` is in PATH, or set absolute path here
-    command = "codelldb",
+    -- Prefer Mason-installed codelldb
+    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
     args = { "--port", "${port}" },
   },
 }

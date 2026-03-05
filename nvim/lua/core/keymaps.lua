@@ -87,6 +87,7 @@ Map('i', '<C-`>', ":ToggleTerm<CR>")
 
 -- DAP (debugging)
 Map("n", "<F5>", function() require("dap").continue() end)
+Map("n", "<F9>", function() require("dap").toggle_breakpoint() end)
 Map("n", "<F10>", function() require("dap").step_over() end)
 Map("n", "<F11>", function() require("dap").step_into() end)
 Map("n", "<F12>", function() require("dap").step_out() end)
