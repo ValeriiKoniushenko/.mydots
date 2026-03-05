@@ -58,7 +58,7 @@ require("lazy").setup({
     },
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
+        -- use latest compatible version instead of old 0.1.8 tag
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
