@@ -1,11 +1,10 @@
--- Basics
 require("core.options")
 require("core.plugins")
 require("core.keymaps")
 
 -- Plugins
 require("plugins.neotree")
--- require("plugins.treesitter")
+require("plugins.treesitter")
 require("plugins.lsp")
 require("plugins.gruvbox")
 require("plugins.cmp")

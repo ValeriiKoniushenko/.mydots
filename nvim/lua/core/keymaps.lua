@@ -85,6 +85,9 @@ Map('n', '<C-A-t>', ":Telescope find_files hidden=true<CR>")
 Map('n', '<C-`>', ":ToggleTerm<CR>")
 Map('i', '<C-`>', ":ToggleTerm<CR>")
 
+-- Gemini CLI (runs `gemini` in a ToggleTerm terminal)
+Map('n', '<leader>gg', ":TermExec cmd='gemini'<CR>")
+
 -- DAP (debugging)
 Map("n", "<F5>", function() require("dap").continue() end)
 Map("n", "<F9>", function() require("dap").toggle_breakpoint() end)

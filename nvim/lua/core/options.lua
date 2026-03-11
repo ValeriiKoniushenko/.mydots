@@ -46,3 +46,15 @@ do
   end
 end
 
+-- Extra filetype detection for common Linux config files
+vim.filetype.add({
+  extension = {
+    cfg = "dosini", -- generic .cfg files: INI-style highlighting
+    conf = "conf",
+  },
+  filename = {
+    ["grub.cfg"] = "grub",
+  },
+})
+
+
