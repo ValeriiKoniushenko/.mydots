@@ -22,7 +22,7 @@ if ok_mason_lspconfig then
       "yamlls",   -- YAML
       "lemminx",  -- XML
       "taplo",    -- TOML
-      "cmake",    -- CMake
+      -- "cmake",    -- CMake
     },
     automatic_installation = true,
   })

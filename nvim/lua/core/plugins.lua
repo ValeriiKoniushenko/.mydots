@@ -102,19 +102,30 @@ require("lazy").setup({
         opts = {
             provider = "openai_fim_compatible",
             n_completions = 1,
-            context_window = 4096,
-            throttle = 500,
-            debounce = 300,
+            context_window = 8192,
+            throttle = 300,
+            debounce = 200,
             provider_options = {
                 openai_fim_compatible = {
+                    -- Using local llama-server: no real API key needed
+                    -- Minuet expects an env var name here; TERM always exists.
                     api_key = "TERM",
-                    name = "qwen2.5-coder-7b-instruct-q8_0",
+                    name = "Phi-3.5-mini (llama-server)",
                     end_point = "http://127.0.0.1:26122/v1/completions",
-                    model = "qwen2.5-coder-7b-instruct-q8_0",
+                    model = "Phi-3.5-mini-instruct-Q8_0.gguf",
                     optional = {
                         max_tokens = 256,
                         stop = { "\n\n" },
                         top_p = 0.9,
+                    },
+                    template = {
+                        -- Simple Phi-3.5 layout: prefix + cursor marker + suffix
+                        prompt = function(context_before_cursor, context_after_cursor, _)
+                            return context_before_cursor
+                                .. "<cursor>"
+                                .. context_after_cursor
+                        end,
+                        suffix = false,
                     },
                 },
             },
@@ -151,7 +162,7 @@ require("lazy").setup({
             },
         },
         opts = {
-            model = "qwen2.5-coder-7b-instruct-q8_0",
+            model = "Phi-3.5-mini-instruct-Q8_0",
             url = "http://127.0.0.1:26122",
         },
     }
