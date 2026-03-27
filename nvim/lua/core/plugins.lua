@@ -95,6 +95,7 @@ require("lazy").setup({
         },
     },
     {
+        --[[ 
         "milanglacier/minuet-ai.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -139,7 +140,7 @@ require("lazy").setup({
                     dismiss = "<C-e>",
                 },
             },
-        },
+        },]]--
     },
     {
         "nomnivore/ollama.nvim",

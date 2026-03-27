@@ -10,7 +10,6 @@ require("plugins.gruvbox")
 require("plugins.cmp")
 require("plugins.mason")
 require("plugins.telescope")
-require("plugins.llama_server") -- auto-start llama-server for local FIM (Minuet)
 -- require("plugins.autosession")
 require("plugins.dap")
 
