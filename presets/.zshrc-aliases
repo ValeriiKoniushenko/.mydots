@@ -53,7 +53,48 @@ fi
 
 alias cdls="cd ~/workspace/Nexium"
 alias cdd="cd ~/Downloads"
-alias gcomm="find sources/ -name '*.cpp' -o -name '*.h' -o -name '*.hpp' -o -name '*.inl' | xargs clang-format -style=file -i && git add . && git commit -m "
 alias h="history | less"
-alias gdrivepush="rclone sync ~/.shared-config gdrive:shared-config"
-alias gdrivepull="rclone sync gdrive:shared-config ~/.shared-config"
+gcommit() {
+  # 1. Check for staged files
+  local FILES=$(git diff --cached --name-only 2>/dev/null)
+  if [ -z "$FILES" ]; then
+    echo "No staged files."
+    return 1
+  fi
+
+  echo "Staged files:"
+  echo "$FILES"
+
+  # 2. Apply clang-format to staged C/C++ files
+  local FMT_FILES=$(echo "$FILES" | grep -E '\.(c|cpp|h|hpp|cc|cxx)$')
+  if [ -n "$FMT_FILES" ]; then
+    echo "\nApplying clang-format..."
+    echo "$FMT_FILES" | xargs clang-format -i
+    echo "$FMT_FILES" | xargs git add
+    echo "Done."
+  fi
+
+  # 3. Generate commit message
+  echo "\nGenerating commit message..."
+  local MSG=$(genmsg.py --silent)
+
+  echo "\nProposed message:\n"
+  echo "---"
+  echo "$MSG"
+  echo "---"
+
+  echo "\nApprove? [Y/n]"
+  read -r confirm
+  if [[ "$confirm" == "n" || "$confirm" == "N" ]]; then
+    echo "Enter your commit message:"
+    read -r MSG </dev/tty
+  fi
+
+  if [ -z "$MSG" ]; then
+    echo "Empty message, aborting."
+    return 1
+  fi
+
+  # 4. Commit
+  git commit -m "$MSG"
+}
