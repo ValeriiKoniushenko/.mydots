@@ -13,25 +13,32 @@ CHARS_PER_FILE = 20
 TEMPERATURE = 0.4
 KEEP_ALIVE = "5m"
 
+def get_repo_root():
+    return subprocess.check_output(
+        ["git", "rev-parse", "--show-toplevel"], stderr=subprocess.DEVNULL
+    ).decode().strip()
+
 def get_diff(files=None):
+    root = get_repo_root()
     cmd = ["git", "diff", "--cached", "--diff-filter=ACMRT"]
     if files:
         cmd += ["--"] + files
-    diff = subprocess.check_output(cmd).decode()
+    diff = subprocess.check_output(cmd, cwd=root).decode()
     if not diff:
         cmd = ["git", "diff", "--diff-filter=ACMRT"]
         if files:
             cmd += ["--"] + files
-        diff = subprocess.check_output(cmd).decode()
+        diff = subprocess.check_output(cmd, cwd=root).decode()
     return diff
 
 def get_changed_files():
+    root = get_repo_root()
     files = subprocess.check_output(
-        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMRT"]
+        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMRT"], cwd=root
     ).decode().splitlines()
     if not files:
         files = subprocess.check_output(
-            ["git", "diff", "--name-only", "--diff-filter=ACMRT"]
+            ["git", "diff", "--name-only", "--diff-filter=ACMRT"], cwd=root
         ).decode().splitlines()
     return files
 
@@ -76,7 +83,7 @@ FORMAT (follow exactly):
 
 RULES:
 - NO markdown!
-- Subject line: max {max(CHARS_PER_FILE*number_files, 1000)} chars
+- Subject line: max {min(CHARS_PER_FILE*number_files, 1000)} chars
 - Body: 1-2 sentences, explain WHY not just WHAT. Bullet points.
 - Mention actual function/class names involved
 - Do NOT write 'This commit...'
