@@ -35,6 +35,10 @@ if command -v tree >/dev/null 2>&1; then
     alias tree="tree -a --dirsfirst -L"
 fi
 
+if command -v tesseract >/dev/null 2>&1; then
+    alias ocr="paste | tesseract stdin stdout"
+fi
+
 if [[ -f ~/.zshrc ]]; then
     alias src="source ~/.zshrc"
 fi
@@ -83,12 +87,12 @@ gcommit() {
   echo "$MSG"
   echo "---"
 
-  echo "\nApprove? [Y/n]"
-  read -r confirm
-  if [[ "$confirm" == "n" || "$confirm" == "N" ]]; then
-    echo "Enter your commit message:"
-    read -r MSG </dev/tty
-  fi
+  #echo "\nApprove? [Y/n]"
+  #read -r confirm
+  #if [[ "$confirm" == "n" || "$confirm" == "N" ]]; then
+  #  echo "Enter your commit message:"
+  #  read -r MSG </dev/tty
+  #fi
 
   if [ -z "$MSG" ]; then
     echo "Empty message, aborting."

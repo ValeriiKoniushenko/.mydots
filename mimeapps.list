@@ -7,6 +7,7 @@ x-scheme-handler/unknown=google-chrome.desktop
 application/x-shellscript=org.gnome.TextEditor.desktop
 x-scheme-handler/mailto=google-chrome.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
+application/json=jetbrains-clion.desktop
 
 [Added Associations]
 application/x-shellscript=org.gnome.TextEditor.desktop;
