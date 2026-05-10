@@ -8,6 +8,10 @@ application/x-shellscript=org.gnome.TextEditor.desktop
 x-scheme-handler/mailto=google-chrome.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
 application/json=jetbrains-clion.desktop
+inode/directory=thunar.desktop
 
 [Added Associations]
 application/x-shellscript=org.gnome.TextEditor.desktop;
+x-scheme-handler/http=xfce4-web-browser.desktop;
+x-scheme-handler/https=xfce4-web-browser.desktop;
+
