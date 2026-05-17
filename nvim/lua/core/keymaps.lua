@@ -100,3 +100,6 @@ Map("n", "<leader>B", function()
 end)
 Map("n", "<leader>dr", function() require("dap").repl.open() end)
 Map("n", "<leader>du", function() require("dapui").toggle() end)
+
+Map({"n", "v"}, '"*y', '"+y')
+Map({"n", "v"}, '"*p', '"+p')

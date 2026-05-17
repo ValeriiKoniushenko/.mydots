@@ -1,3 +1,4 @@
+
 require("core.options")
 require("core.plugins")
 require("core.keymaps")
@@ -22,3 +23,5 @@ require("dap").adapters.codelldb = {
     args = { "--port", "${port}" },
   },
 }
+
+vim.opt.clipboard = "unnamedplus"

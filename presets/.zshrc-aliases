@@ -1,3 +1,10 @@
+alias homelabl="ssh -p 2222 'vakon@192.168.50.65'"
+alias homelabg="ssh vakon@10.10.0.1 -p 2222"
+
+if command -v pacman >/dev/null 2>&1; then
+    alias pacman="sudo pacman"
+fi
+
 if command -v fzf >/dev/null 2>&1; then
     source <(fzf --zsh)
 fi
@@ -127,21 +134,3 @@ gcommit () {
 	fi
 }
 
-ocrai() {
-  local mime=$(wl-paste --list-types 2>/dev/null | grep -i image | head -1)
-  
-  if [[ -z "$mime" ]]; then
-    echo "No image in clipboard. Copy a screenshot first." >&2
-    return 1
-  fi
-
-  local tmp_img=$(mktemp /tmp/ocrai_XXXXXX.png)
-  local tmp_json=$(mktemp /tmp/ocrai_XXXXXX.json)
-  
-  wl-paste --type "$mime" > "$tmp_img"
-  jq -n --arg img "$(base64 -w0 "$tmp_img")" \
-    '{"model":"moondream","prompt":"Extract all text verbatim, output only the text","images":[$img],"stream":false}' \
-    > "$tmp_json"
-  curl -s http://localhost:11434/api/generate -d @"$tmp_json" | jq -r '.response'
-  rm "$tmp_img" "$tmp_json"
-}
