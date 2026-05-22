@@ -76,8 +76,8 @@ vim.keymap.set("n", "<C-q>", function()
 end, { buffer = bufnr })
 
 -- Telescope
-Map('n', '<C-f>g', ":lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>")
-Map('n', '<C-f>f', ":Telescope find_files hidden=true<CR>")
+Map('n', '<leader>fg', ":lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>")
+Map('n', '<leader>ff', ":Telescope find_files hidden=true<CR>")
 Map('n', '<C-A-f>', ":lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>")
 Map('n', '<C-A-t>', ":Telescope find_files hidden=true<CR>")
 

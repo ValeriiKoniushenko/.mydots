@@ -23,7 +23,7 @@ config.window_padding = {
     top = 10,
     bottom = 4,
 }
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.92
 config.initial_cols = 140
 config.colors = {
   tab_bar = {
