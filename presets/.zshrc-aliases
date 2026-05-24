@@ -70,12 +70,14 @@ alias kill="sudo kill -9"
 gcommit () {
 	local DO_ADD_ALL=0
 	local DO_PUSH=0
+	local DO_FAST=0
 
-	while getopts ":ap" opt; do
+	while getopts ":apf" opt; do
 		case $opt in
 			a) DO_ADD_ALL=1 ;;
 			p) DO_PUSH=1 ;;
-			*) echo "Usage: gcommit [-a] [-p]"; return 1 ;;
+			f) DO_FAST=1 ;;
+			*) echo "Usage: gcommit [-a] [-p] [-f]"; return 1 ;;
 		esac
 	done
 
@@ -112,18 +114,23 @@ gcommit () {
 		return 1
 	fi
 
-	local TMPFILE=$(mktemp /tmp/gcommit_msg.XXXXXX)
-	echo "$MSG" > "$TMPFILE"
-
-	${EDITOR:-vim} "$TMPFILE"
-	MSG=$(cat "$TMPFILE")
-	rm -f "$TMPFILE"
-
-	MSG=$(echo "$MSG" | sed '/^[[:space:]]*$/d')
-	if [ -z "$MSG" ]
+	if [ "$DO_FAST" -eq 0 ]
 	then
-		echo "Empty message, aborting."
-		return 1
+		local TMPFILE=$(mktemp /tmp/gcommit_msg.XXXXXX)
+		echo "$MSG" > "$TMPFILE"
+
+		${EDITOR:-vim} "$TMPFILE"
+		MSG=$(cat "$TMPFILE")
+		rm -f "$TMPFILE"
+
+		MSG=$(echo "$MSG" | sed '/^[[:space:]]*$/d')
+		if [ -z "$MSG" ]
+		then
+			echo "Empty message, aborting."
+			return 1
+		fi
+	else
+		echo "Message: $MSG"
 	fi
 
 	git commit -m "$MSG"
@@ -134,4 +141,3 @@ gcommit () {
 		git push
 	fi
 }
-
