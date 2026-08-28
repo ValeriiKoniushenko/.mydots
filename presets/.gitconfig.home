@@ -27,3 +27,7 @@
 	gpgSign = true
 [pull]
 	rebase = true
+[alias]
+	b = branch
+	c = checkout
+	nuke = !rm -f .jrm/cache.data && find -name '*.generated.*' -delete && git submodule update --init --recursive --remote

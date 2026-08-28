@@ -1,0 +1,12 @@
+[Unit]
+Description=Spotify
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/spotify --minimized
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
+

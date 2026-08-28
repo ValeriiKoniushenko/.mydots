@@ -65,7 +65,6 @@ fi
 alias cdls="cd ~/workspace/Nexium"
 alias cdd="cd ~/Downloads"
 alias h="history | less"
-alias kill="sudo kill -9"
 
 gcommit () {
 	local DO_ADD_ALL=0
@@ -107,7 +106,7 @@ gcommit () {
 	fi
 
 	echo "\nGenerating commit message..."
-	local MSG=$(genmsg.py --silent)
+	local MSG=$(genmsg_openai.py --silent)
 	if [ -z "$MSG" ]
 	then
 		echo "Empty message, aborting."

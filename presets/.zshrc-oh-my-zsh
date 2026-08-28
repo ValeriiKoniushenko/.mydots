@@ -6,7 +6,7 @@ export ZSH_COMPDUMP="~/.cache/.zsh/.zcompdump"
 
 if [[ -d $ZSH ]]; then
     ZSH_THEME="refined"
-    plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search)
+    plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search fzf)
     
     source $ZSH/oh-my-zsh.sh
     

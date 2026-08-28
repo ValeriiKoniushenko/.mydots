@@ -1,0 +1,12 @@
+[Unit]
+Description=Telegram Desktop
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/telegram-desktop -startintray
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
+

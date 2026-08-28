@@ -26,6 +26,8 @@ config.window_padding = {
 config.window_background_opacity = 0.92
 config.initial_cols = 140
 config.colors = {
+  selection_bg = '#3b4252',
+  selection_fg = '#eceff4',
   tab_bar = {
 
     active_tab = {
