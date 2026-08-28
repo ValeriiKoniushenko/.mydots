@@ -1,0 +1,109 @@
+{
+  "git.openRepositoryInParentFolders": "never",
+  "files.watcherExclude": {
+    "**/.cache/**": true
+  },
+  "search.exclude": {
+    "**/.cache/**": true
+  },
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "xml.server.binary.trustedHashes": [
+    "637a908b82398d8d99f3fc966098825e5357751222d6582323be9aff94555ec8"
+  ],
+  "python.analysis.typeCheckingMode": "standard",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "explorer.confirmDelete": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.formatOnSave": true,
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "editor.inlayHints.enabled": "off",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "workbench.editor.tabActionLocation": "left",
+  "editor.fontSize": 12,
+  "editor.defaultFormatter": "xaver.clang-format",
+  "editor.minimap.autohide": true,
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.default.compilerPath": "/usr/bin/g++",
+  "C_Cpp.default.cppStandard": "c++23",
+  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.codeAnalysis.runAutomatically": false,
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+  "workbench.activityBar.compact": true,
+  "terminal.explorerKind": "external",
+  "terminal.integrated.allowInUntrustedWorkspace": true,
+  "terminal.integrated.cursorStyle": "line",
+  "update.showReleaseNotes": false,
+  "[cmake]": {
+    "editor.defaultFormatter": "KylinIdeTeam.cmake-intellisence"
+  },
+  "files.associations": {
+    ".clangd": "yaml",
+    ".clang-tidy": "yaml",
+    ".clang-format": "yaml",
+    "*.h": "cpp",
+    "CMakeLists.txt": "cmake",
+    "*.cmake": "cmake",
+    "Makefile": "makefile",
+    "*.lds": "cpp",
+    "*.natvis": "xml",
+    "*.inl": "cpp",
+    "*.glsl": "glsl",
+    "*.vert": "glsl",
+    "*.frag": "glsl",
+    "*.comp": "glsl",
+    "*.nx*": "json",
+  },
+  "workbench.colorTheme": "Visual Studio 2017 Light - C++",
+  "workbench.layoutControl.enabled": false,
+  "workbench.openInAgents.enabled": false,
+  "workbench.browser.showInTitleBar": false,
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "clangd.arguments": [
+    "--header-insertion=never",
+    "--background-index=true",
+    "--background-index-priority=normal",
+    "-j=16"
+  ],
+  "workbench.activityBar.location": "top",
+  "workbench.editor.revealIfOpen": true,
+  "continue.enableTabAutocomplete": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "workbench.settings.applyToAllProfiles": [],
+  "continue.disableQuickFix": true,
+  "continue.showInlineTip": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.currentLine.pullRequests.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "continue.enableNextEdit": false,
+  "chat.agent.enabled": false,
+  "chat.editor.fontSize": 12,
+  "chat.fontSize": 12,
+  "scm.inputFontSize": 12,
+  "terminal.integrated.fontSize": 12,
+  "RainbowBrackets.depreciation-notice": false,
+  "RainbowBrackets.forceUniqueOpeningColor": true,
+  "debug.console.fontSize": 12,
+  "markdown.preview.fontSize": 12,
+  "editor.lineHeight": 1.22,
+  "editor.fontFamily": "'Fira Mono', monospace",
+  "notebook.output.lineHeight": 1.22,
+  "markdown.preview.lineHeight": 1.5,
+  "security.workspace.trust.untrustedFiles": "open",
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cmake.automaticReconfigure": false,
+  "cmake.autoSelectActiveFolder": false,
+  "cursor.composer.showEmptyStateTips": false,
+}
