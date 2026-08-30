@@ -106,6 +106,7 @@
   "markdown.preview.lineHeight": 1.5,
   "security.workspace.trust.untrustedFiles": "open",
   "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cmake.configureOnOpen": false,
   "cmake.automaticReconfigure": false,
   "cmake.autoSelectActiveFolder": false,
   "cursor.composer.showEmptyStateTips": false,
