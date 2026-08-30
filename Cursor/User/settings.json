@@ -106,4 +106,6 @@
   "cmake.automaticReconfigure": false,
   "cmake.autoSelectActiveFolder": false,
   "cursor.composer.showEmptyStateTips": false,
+  "cmake.useCMakePresets": "never",
+  "workbench.agentsWindowButton.enabled": false,
 }
