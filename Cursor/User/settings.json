@@ -1,10 +1,14 @@
 {
   "git.openRepositoryInParentFolders": "never",
   "files.watcherExclude": {
-    "**/.cache/**": true
+    "**/.cache/**": true,
+    "**/build/**": true,
+    "**/cmake-build-*/**": true
   },
   "search.exclude": {
-    "**/.cache/**": true
+    "**/.cache/**": true,
+    "**/build/**": true,
+    "**/cmake-build-*/**": true
   },
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "xml.server.binary.trustedHashes": [
