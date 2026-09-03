@@ -1,5 +1,7 @@
-local dap = require("dap")
-local dapui = require("dapui")
+local ok_dap, dap = pcall(require, "dap")
+if not ok_dap then
+  return
+end
 
 -- Basic C/C++ configuration using codelldb adapter (set in init.lua)
 dap.configurations.cpp = {
@@ -15,10 +17,13 @@ dap.configurations.cpp = {
   },
 }
 
--- Reuse C++ config for C
 dap.configurations.c = dap.configurations.cpp
 
--- DAP UI setup
+local ok_dapui, dapui = pcall(require, "dapui")
+if not ok_dapui then
+  return
+end
+
 dapui.setup()
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -32,4 +37,3 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
-

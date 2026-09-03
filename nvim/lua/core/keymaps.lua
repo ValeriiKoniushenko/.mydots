@@ -1,50 +1,56 @@
-function Map(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.keymap.set(mode, lhs, rhs, options)
+local function Map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+local function plugin_cmd(command, missing)
+  return function()
+    local name = command:match("^(%S+)")
+    if vim.fn.exists(":" .. name) ~= 2 then
+      vim.notify(missing or (name .. " is not installed"), vim.log.levels.WARN)
+      return
+    end
+    vim.cmd(command)
+  end
+end
 
+local function with_module(mod, fn, missing)
+  return function(...)
+    local ok, m = pcall(require, mod)
+    if not ok then
+      vim.notify(missing or (mod .. " is not installed"), vim.log.levels.WARN)
+      return
+    end
+    return fn(m, ...)
+  end
+end
 
--- Better window navigation
-Map("n", "<C-h>", "<C-w>h")
-Map("n", "<C-j>", "<C-w>j")
-Map("n", "<C-k>", "<C-w>k")
-Map("n", "<C-l>", "<C-w>l")
+-- Save (popular). Default window splits stay as :vsplit / <C-w>v
+Map("n", "<C-s>", "<Cmd>write<CR>")
+Map("i", "<C-s>", "<Cmd>write<CR>")
+Map("v", "<C-s>", "<Cmd>write<CR>")
 
--- Splitting
-Map("n", "<C-s>", ":vsplit<CR>")
--- Map("n", "<C-s>h", ":split<CR>")
--- Map("n", "<C-s>d", ":close<CR>")
+-- Resize splits with arrows (does not steal default letter keys)
+Map("n", "<C-Up>", "<Cmd>resize +2<CR>")
+Map("n", "<C-Down>", "<Cmd>resize -2<CR>")
+Map("n", "<C-Left>", "<Cmd>vertical resize +2<CR>")
+Map("n", "<C-Right>", "<Cmd>vertical resize -2<CR>")
 
--- Resize with arrows
-Map("n", "<C-Up>", ":resize +2<CR>")
-Map("n", "<C-Down>", ":resize -2<CR>")
-Map("n", "<C-Left>", ":vertical resize +2<CR>")
-Map("n", "<C-Right>", ":vertical resize -2<CR>")
-
--- Move text up and down
+-- Move lines (popular VS Code-style; Alt is unused by Neovim defaults)
 Map("n", "<A-j>", ":m .+1<CR>==")
 Map("n", "<A-k>", ":m .-2<CR>==")
 Map("v", "<A-j>", ":m '>+1<CR>gv=gv")
 Map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
--- Indenting
-Map("n", "<Tab", ">>")
-Map("n", "<s-Tab>", "<<")
-Map("v", "<Tab>", ">gv")
-Map("v", "<s-Tab>", "<gv")
+-- Stay in visual mode while indenting
+Map("v", "<", "<gv")
+Map("v", ">", ">gv")
 
--- Tabs
-Map("n", "gc", ":tabclose<CR>")
-
--- Switch between C++ source and header with Alt+O
+-- Switch between C/C++ source and header
 Map("n", "<A-o>", function()
-  local ts = vim.fn.expand("%:t")
   local root = vim.fn.expand("%:r")
   local ext = vim.fn.expand("%:e")
 
@@ -53,53 +59,55 @@ Map("n", "<A-o>", function()
     candidates = { root .. ".h", root .. ".hpp", root .. ".hh" }
   elseif ext == "h" or ext == "hpp" or ext == "hh" then
     candidates = { root .. ".cpp", root .. ".cc", root .. ".cxx", root .. ".c" }
+  else
+    return
   end
 
   for _, file in ipairs(candidates) do
-    if vim.loop.fs_stat(file) then
+    if vim.uv.fs_stat(file) then
       vim.cmd.edit(file)
       return
     end
   end
 end)
 
--- ===== PLUGINS =====  --
--- NeoTree
-Map("n", "<C-e>", "<Cmd>Neotree toggle<CR>")
+-- ===== PLUGINS ===== --
+-- File explorer (popular <leader>e; keeps default <C-e> scroll)
+Map("n", "<leader>e", plugin_cmd("Neotree toggle", "neo-tree is not installed"))
 
--- Vim diagnostic
-vim.keymap.set("n", "<C-q>", function()
-  vim.diagnostic.setloclist({ open = false }) -- don't open and focus
+-- Diagnostics list (popular; Neovim still has [d / ]d / <C-w>d)
+Map("n", "<leader>q", function()
+  vim.diagnostic.setloclist({ open = false })
   local window = vim.api.nvim_get_current_win()
-  vim.cmd.lwindow() -- open+focus loclist if has entries, else close -- this is the magic toggle command
-  vim.api.nvim_set_current_win(window) -- restore focus to window you were editing (delete this if you want to stay in loclist)
-end, { buffer = bufnr })
-
--- Telescope
-Map('n', '<leader>fg', ":lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>")
-Map('n', '<leader>ff', ":Telescope find_files hidden=true<CR>")
-Map('n', '<C-A-f>', ":lua require('telescope.builtin').live_grep({additional_args = {'--hidden'}})<CR>")
-Map('n', '<C-A-t>', ":Telescope find_files hidden=true<CR>")
-
--- Toggleterm
-Map('n', '<C-`>', ":ToggleTerm<CR>")
-Map('i', '<C-`>', ":ToggleTerm<CR>")
-
--- Gemini CLI (runs `gemini` in a ToggleTerm terminal)
-Map('n', '<leader>gg', ":TermExec cmd='gemini'<CR>")
-
--- DAP (debugging)
-Map("n", "<F5>", function() require("dap").continue() end)
-Map("n", "<F9>", function() require("dap").toggle_breakpoint() end)
-Map("n", "<F10>", function() require("dap").step_over() end)
-Map("n", "<F11>", function() require("dap").step_into() end)
-Map("n", "<F12>", function() require("dap").step_out() end)
-Map("n", "<leader>b", function() require("dap").toggle_breakpoint() end)
-Map("n", "<leader>B", function()
-  require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+  vim.cmd.lwindow()
+  vim.api.nvim_set_current_win(window)
 end)
-Map("n", "<leader>dr", function() require("dap").repl.open() end)
-Map("n", "<leader>du", function() require("dapui").toggle() end)
 
-Map({"n", "v"}, '"*y', '"+y')
-Map({"n", "v"}, '"*p', '"+p')
+-- Telescope (popular defaults)
+Map("n", "<leader>ff", with_module("telescope.builtin", function(builtin)
+  builtin.find_files({ hidden = true })
+end, "telescope.nvim is not installed"))
+Map("n", "<leader>fg", with_module("telescope.builtin", function(builtin)
+  builtin.live_grep({ additional_args = { "--hidden" } })
+end, "telescope.nvim is not installed"))
+
+-- ToggleTerm (popular VS Code-style terminal toggle)
+Map("n", "<C-`>", plugin_cmd("ToggleTerm", "toggleterm.nvim is not installed"))
+Map("i", "<C-`>", plugin_cmd("ToggleTerm", "toggleterm.nvim is not installed"))
+Map("t", "<C-`>", plugin_cmd("ToggleTerm", "toggleterm.nvim is not installed"))
+
+-- Gemini CLI in a terminal (no-op with a warning if ToggleTerm is missing)
+Map("n", "<leader>gg", plugin_cmd("TermExec cmd='gemini'", "toggleterm.nvim is not installed"))
+
+-- DAP (F-keys match VS Code / common IDE bindings)
+Map("n", "<F5>", with_module("dap", function(dap) dap.continue() end, "nvim-dap is not installed"))
+Map("n", "<F9>", with_module("dap", function(dap) dap.toggle_breakpoint() end, "nvim-dap is not installed"))
+Map("n", "<F10>", with_module("dap", function(dap) dap.step_over() end, "nvim-dap is not installed"))
+Map("n", "<F11>", with_module("dap", function(dap) dap.step_into() end, "nvim-dap is not installed"))
+Map("n", "<F12>", with_module("dap", function(dap) dap.step_out() end, "nvim-dap is not installed"))
+Map("n", "<leader>b", with_module("dap", function(dap) dap.toggle_breakpoint() end, "nvim-dap is not installed"))
+Map("n", "<leader>B", with_module("dap", function(dap)
+  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, "nvim-dap is not installed"))
+Map("n", "<leader>dr", with_module("dap", function(dap) dap.repl.open() end, "nvim-dap is not installed"))
+Map("n", "<leader>du", with_module("dapui", function(dapui) dapui.toggle() end, "nvim-dap-ui is not installed"))

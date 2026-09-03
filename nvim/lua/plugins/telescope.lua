@@ -1,14 +1,19 @@
-require('telescope').setup{
+local ok, telescope = pcall(require, "telescope")
+if not ok then
+  return
+end
+
+telescope.setup({
   defaults = {
     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '-uu' -- **This is the setting not being respected**
-    }
-  }
-}
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "-uu",
+    },
+  },
+})

@@ -1,4 +1,9 @@
-require("mason").setup({
+local ok, mason = pcall(require, "mason")
+if not ok then
+  return
+end
+
+mason.setup({
   ui = {
     icons = {
       package_installed = "✓",
@@ -9,21 +14,18 @@ require("mason").setup({
 })
 
 local ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
-if ok_mason_lspconfig then
-  mason_lspconfig.setup({
-    ensure_installed = {
-      -- Existing
-      "clangd",
-      "lua_ls",
-
-      -- Linux / config & scripting
-      "bashls",   -- Bash / shell scripts
-      "jsonls",   -- JSON / JSONC
-      "yamlls",   -- YAML
-      "lemminx",  -- XML
-      "taplo",    -- TOML
-      -- "cmake",    -- CMake
-    },
-    automatic_installation = true,
-  })
+if not ok_mason_lspconfig then
+  return
 end
+
+mason_lspconfig.setup({
+  ensure_installed = {
+    "clangd",
+    "lua_ls",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "lemminx",
+    "taplo",
+  },
+})

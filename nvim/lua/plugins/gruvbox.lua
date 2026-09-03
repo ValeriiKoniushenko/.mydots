@@ -1,7 +1,9 @@
--- vim.o.termguicolors = true
--- vim.cmd [[ colorscheme gruvbox ]]
+local ok, gruvbox = pcall(require, "gruvbox")
+if not ok then
+  return
+end
 
-require("gruvbox").setup({
+gruvbox.setup({
   terminal_colors = true,
   undercurl = true,
   underline = true,
@@ -18,12 +20,12 @@ require("gruvbox").setup({
   invert_signs = false,
   invert_tabline = false,
   invert_intend_guides = false,
-  inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "", -- can be "hard", "soft" or empty string
+  inverse = true,
+  contrast = "",
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
   transparent_mode = true,
 })
 
-vim.cmd("colorscheme gruvbox")
+pcall(vim.cmd.colorscheme, "gruvbox")

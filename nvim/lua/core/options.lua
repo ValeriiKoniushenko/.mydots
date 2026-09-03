@@ -1,8 +1,9 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- Leader must be set before plugins load (core.plugins is required next).
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.opt.showcmd = true
-vim.opt.laststatus = 4
+vim.opt.laststatus = 3 -- 0/1/2/3 only; 3 = global statusline
 vim.opt.autowrite = true
 vim.opt.cursorline = true
 vim.opt.autoread = true
@@ -14,12 +15,10 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
-vim.cmd [[ set noswapfile ]]
-vim.cmd [[ set termguicolors ]]
+vim.opt.swapfile = false
+vim.opt.termguicolors = true
 
--- vim.opt.clipboard = "unnamedplus"
-
---Line numbers
+-- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
@@ -40,7 +39,6 @@ do
     if parsers.filetype_to_parsername then
       parsers.ft_to_lang = parsers.filetype_to_parsername
     elseif language and language.get_lang then
-      -- Fallback: delegate to vim.treesitter.language
       parsers.ft_to_lang = language.get_lang
     end
   end
@@ -49,12 +47,10 @@ end
 -- Extra filetype detection for common Linux config files
 vim.filetype.add({
   extension = {
-    cfg = "dosini", -- generic .cfg files: INI-style highlighting
+    cfg = "dosini",
     conf = "conf",
   },
   filename = {
     ["grub.cfg"] = "grub",
   },
 })
-
-
