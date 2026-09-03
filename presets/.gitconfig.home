@@ -30,4 +30,4 @@
 [alias]
 	b = branch
 	c = checkout
-	nuke = !rm -f .jrm/cache.data && find -name '*.generated.*' -delete && git submodule update --init --recursive --remote
+	nuke = !rm -f .jrm/cache.data && find -name '*.generated.*' -delete && git submodule sync --recursive && git submodule update --init --recursive --remote

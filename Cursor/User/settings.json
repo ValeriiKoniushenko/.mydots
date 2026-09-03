@@ -14,7 +14,6 @@
     "cmake.ctest.testExplorerIntegrationEnabled": false,
     "cmake.enableAutomaticKitScan": false,
     "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "clangd.path": "c:\\Users\\vkoniush\\AppData\\Roaming\\Cursor\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\22.1.0\\clangd_22.1.0\\bin\\clangd.exe",
     "search.seedOnFocus": true,
     "search.seedWithNearestWord": true,
     "workbench.editor.tabActionLocation": "left",
@@ -53,5 +52,11 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.shellIntegration.history": 10000,
     "hediet.vscode-drawio.resizeImages": null,
-    "cursor.composer.queueMessageDefaultBehavior": "steer"
+    "cursor.composer.queueMessageDefaultBehavior": "steer",
+    "editor.fontSize": 13,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.defaultFormatter": "xaver.clang-format",
+    "git.openRepositoryInParentFolders": "never"
 }
