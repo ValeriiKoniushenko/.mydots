@@ -30,20 +30,29 @@ fi
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     if command -v wl-copy >/dev/null 2>&1; then
         alias copy="wl-copy"
-        alias paste="wl-paste" 
+        alias paste="wl-paste"
     fi
 elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
     if command -v xclip >/dev/null 2>&1; then
         alias copy="xclip -sel clip"
-        alias paste="xclip -sel clip -o" 
+        alias paste="xclip -sel clip -o"
     fi
+elif command -v pbcopy >/dev/null 2>&1 && command -v pbpaste >/dev/null 2>&1; then
+    alias copy="pbcopy"
+    alias paste="pbpaste"
 fi
 if command -v tree >/dev/null 2>&1; then
     alias tree="tree -a --dirsfirst -L"
 fi
 
 if command -v tesseract >/dev/null 2>&1; then
-    alias ocr="wl-paste | tesseract stdin stdout --oem 1 --psm 3 2>/dev/null"
+    if command -v wl-paste >/dev/null 2>&1; then
+        alias ocr="wl-paste | tesseract stdin stdout --oem 1 --psm 3 2>/dev/null"
+    elif command -v xclip >/dev/null 2>&1; then
+        alias ocr="xclip -sel clip -o | tesseract stdin stdout --oem 1 --psm 3 2>/dev/null"
+    elif command -v pbpaste >/dev/null 2>&1; then
+        alias ocr="pbpaste | tesseract stdin stdout --oem 1 --psm 3 2>/dev/null"
+    fi
 fi
 
 if [[ -f ~/.zshrc ]]; then
@@ -59,7 +68,7 @@ if [[ -d ~/.config ]]; then
 fi
 
 if [[ -d ~/.shared-config ]]; then
-    alias cdsc="cd ~/.config"
+    alias cdsc="cd ~/.shared-config"
 fi
 
 alias cdls="cd ~/workspace/Nexium"
@@ -70,6 +79,8 @@ gcommit () {
 	local DO_ADD_ALL=0
 	local DO_PUSH=0
 	local DO_FAST=0
+	local OPTIND=1
+	local opt
 
 	while getopts ":apf" opt; do
 		case $opt in
@@ -120,7 +131,7 @@ gcommit () {
 
 		${EDITOR:-vim} "$TMPFILE"
 		MSG=$(cat "$TMPFILE")
-		rm -f "$TMPFILE"
+		command rm -f "$TMPFILE"
 
 		MSG=$(echo "$MSG" | sed '/^[[:space:]]*$/d')
 		if [ -z "$MSG" ]

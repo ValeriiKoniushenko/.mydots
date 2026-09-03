@@ -1,15 +1,10 @@
 # ============== GENERAL ==================
-if [ ! -d "~/.cache" ]; then
-    mkdir -p ~/.cache
-fi
-if [ ! -d "~/.cache/.zsh" ]; then
-    mkdir -p ~/.cache/.zsh
-fi
+mkdir -p "$HOME/.cache/.zsh"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 if command -v nvim > /dev/null 2>&1; then
-    export EDITOR=nvim 
+    export EDITOR=nvim
 elif command -v vim > /dev/null 2>&1; then
     export EDITOR=vim
 elif command -v nano > /dev/null 2>&1; then
@@ -18,14 +13,13 @@ elif command -v micro > /dev/null 2>&1; then
     export EDITOR=micro
 fi
 
-export DISPLAY=:1
-export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_HOME="$HOME/.config"
 export GPG_TTY=$(tty)
 
 
 
 # ============== HISTORY ==================
-export LESSHISTFILE="~/.cache/.lesshst"
+export LESSHISTFILE="$HOME/.cache/.lesshst"
 HISTFILE="$HOME/.cache/.zsh/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
