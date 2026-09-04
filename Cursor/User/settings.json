@@ -1,7 +1,6 @@
 {
     "window.autoDetectColorScheme": true,
     "explorer.confirmDelete": false,
-    "workbench.preferredLightColorTheme": "JetBrains Darcula Theme",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.focusAfterRun": "terminal",
     "terminal.integrated.scrollback": 15000,
@@ -18,7 +17,7 @@
     "search.seedWithNearestWord": true,
     "workbench.editor.tabActionLocation": "left",
     "editor.formatOnSave": true,
-    "workbench.iconTheme": "jetbrains-file-icon-theme-dark",
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-light",
     "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
     "terminal.integrated.copyOnSelection": true,
@@ -51,7 +50,6 @@
     "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.shellIntegration.history": 10000,
-    "hediet.vscode-drawio.resizeImages": null,
     "cursor.composer.queueMessageDefaultBehavior": "steer",
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
@@ -60,5 +58,7 @@
     "git.openRepositoryInParentFolders": "never",
     "files.associations": {
         "*.nx*": "json"
-    }    
+    },
+    "clang-format.executable.linux": "/usr/bin/clang-format",
+    "clang-format.executable": "clang-format"
 }
