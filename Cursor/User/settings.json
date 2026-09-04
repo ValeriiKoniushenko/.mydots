@@ -19,7 +19,7 @@
     "workbench.editor.tabActionLocation": "left",
     "editor.formatOnSave": true,
     "workbench.iconTheme": "jetbrains-file-icon-theme-dark",
-    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.confirmOnKill": "never",
@@ -53,10 +53,12 @@
     "terminal.integrated.shellIntegration.history": 10000,
     "hediet.vscode-drawio.resizeImages": null,
     "cursor.composer.queueMessageDefaultBehavior": "steer",
-    "editor.fontSize": 13,
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
     "editor.defaultFormatter": "xaver.clang-format",
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "files.associations": {
+        "*.nx*": "json"
+    }    
 }
