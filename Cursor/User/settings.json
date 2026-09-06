@@ -25,26 +25,20 @@
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
             "source": "PowerShell",
-            "icon": "terminal-powershell"
+            "icon": "terminal-powershell",
         },
         "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
+            "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"],
             "args": [],
-            "icon": "terminal-cmd"
+            "icon": "terminal-cmd",
         },
         "Git Bash": {
-            "source": "Git Bash"
+            "source": "Git Bash",
         },
         "Ubuntu (WSL)": {
             "path": "C:\\Windows\\System32\\wsl.exe",
-            "args": [
-                "-d",
-                "Ubuntu"
-            ]
-        }
+            "args": ["-d", "Ubuntu"],
+        },
     },
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
@@ -52,13 +46,70 @@
     "terminal.integrated.shellIntegration.history": 10000,
     "cursor.composer.queueMessageDefaultBehavior": "steer",
     "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": true,
     },
-    "editor.defaultFormatter": "xaver.clang-format",
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": true,
+    },
+    "[objective-c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[objective-cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[csharp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[java]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[proto]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[proto3]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[textproto]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
     "git.openRepositoryInParentFolders": "never",
     "files.associations": {
-        "*.nx*": "json"
+        "*.nx*": "json",
     },
     "clang-format.executable.linux": "/usr/bin/clang-format",
-    "clang-format.executable": "clang-format"
+    "clang-format.executable": "clang-format",
+    "workbench.colorTheme": "Visual Studio 2017 Light - C++",
+    "workbench.tips.enabled": false,
+    "workbench.tree.indent": 12,
+    "workbench.editor.autoLockGroups": {
+        "mainThreadWebview-browserPreview": false,
+    },
+    "workbench.editor.tabSizingFixedMaxWidth": 140,
+    "workbench.editor.wrapTabs": true,
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "workbench.list.smoothScrolling": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.smoothScrolling": true,
+    "update.mode": "none",
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "cursor.composer.showEmptyStateTips": false,
+    "cursor.general.glassShowWarningNotifications": true,
+    "prettier.documentSelectors": [".json"],
+    "prettier.endOfLine": "auto",
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 120,
+    "cursor.general.disableHttp2": true,
+    "workbench.preferredLightColorTheme": "Visual Studio 2017 Light - C++",
+    "workbench.agentsWindowButton.enabled": false,
 }
