@@ -1,0 +1,194 @@
+{
+  "git.openRepositoryInParentFolders": "never",
+  "files.watcherExclude": {
+    "**/.cache/**": true
+  },
+  "search.exclude": {
+    "**/.cache/**": true
+  },
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "xml.server.binary.trustedHashes": [
+    "637a908b82398d8d99f3fc966098825e5357751222d6582323be9aff94555ec8"
+  ],
+  "python.analysis.typeCheckingMode": "standard",
+  "explorer.confirmDelete": false,
+  "editor.formatOnSave": true,
+  "editor.inlayHints.enabled": "off",
+  "editor.cursorSmoothCaretAnimation": "explicit",
+  "workbench.editor.tabActionLocation": "left",
+  "editor.minimap.autohide": "mouseover",
+  "workbench.activityBar.compact": true,
+  "terminal.explorerKind": "external",
+  "terminal.integrated.allowInUntrustedWorkspace": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.focusAfterRun": "terminal",
+  "terminal.integrated.scrollback": 15000,
+  "terminal.integrated.shellIntegration.showCommandGuide": false,
+  "terminal.integrated.smoothScrolling": true,
+  "update.showReleaseNotes": false,
+  "[cmake]": {
+    "editor.defaultFormatter": "KylinIdeTeam.cmake-intellisence",
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    ".clangd": "yaml",
+    ".clang-tidy": "yaml",
+    ".clang-format": "yaml",
+    "*.h": "cpp",
+    "CMakeLists.txt": "cmake",
+    "*.cmake": "cmake",
+    "Makefile": "makefile",
+    "*.lds": "cpp",
+    "*.natvis": "xml",
+    "*.inl": "cpp",
+    "*.glsl": "glsl",
+    "*.vert": "glsl",
+    "*.frag": "glsl",
+    "*.comp": "glsl",
+    "*.nx*": "json"
+  },
+  "workbench.layoutControl.enabled": false,
+  "workbench.openInAgents.enabled": false,
+  "workbench.browser.showInTitleBar": false,
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=never",
+    "--completion-style=detailed",
+    "--query-driver=/usr/bin/g++,/usr/bin/gcc,/usr/bin/clang++,/usr/bin/clang"
+  ],
+  "clang-format.executable.linux": "/usr/bin/clang-format",
+  "clang-format.executable": "clang-format",
+  "workbench.activityBar.location": "top",
+  "workbench.editor.revealIfOpen": true,
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true,
+  },
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true,
+  },
+  "[objective-c]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[objective-cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[java]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[proto]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[proto3]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "[textproto]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+  "editor.inlineSuggest.enabled": true,
+  "workbench.settings.applyToAllProfiles": [],
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.currentLine.pullRequests.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "chat.agent.enabled": false,
+  "chat.editor.fontSize": 12,
+  "chat.fontSize": 12,
+  "terminal.integrated.fontSize": 12,
+  "debug.console.fontSize": 12,
+  "markdown.preview.fontSize": 13,
+  "editor.lineHeight": 1.24,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  "notebook.output.lineHeight": 1.24,
+  "markdown.preview.lineHeight": 1.5,
+  "security.workspace.trust.untrustedFiles": "open",
+  "yaml.schemas": {
+    "file:///home/valerii/.vscode/extensions/continue.continue-1.2.22-linux-x64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///home/valerii/.vscode/extensions/continue.continue-2.0.0-linux-x64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ]
+  },
+  "cSpell.userWords": [
+    "aiignore",
+    "Aldus",
+    "ASSIMP",
+    "autohide",
+    "bugprone",
+    "cdls",
+    "chro",
+    "CNSTR",
+    "cppcoreguidelines",
+    "crtp",
+    "DNEXIUM",
+    "fdeps",
+    "fmodules",
+    "freetype",
+    "gcommit",
+    "GLFW",
+    "Koniushenko",
+    "Letraset",
+    "LFCR",
+    "Nexium",
+    "nlohmann",
+    "nxfile",
+    "nxtex",
+    "OLLAMA",
+    "Outliner",
+    "pcre",
+    "popularised",
+    "Predefinitions",
+    "qwen",
+    "Rectpack",
+    "Renderable",
+    "Skybox",
+    "starcoder",
+    "std",
+    "STREQ",
+    "Valerii",
+    "vararg"
+  ],
+  "prettier.documentSelectors": [
+    ".json"
+  ],
+  "prettier.endOfLine": "auto",
+  "prettier.tabWidth": 4,
+  "prettier.printWidth": 120,
+  "indentRainbow.excludedLanguages": [
+    "cpp",
+    "c",
+    "java",
+    "csharp",
+    "cmake",
+    "plaintext"
+  ],
+  "terminal.external.linuxExec": "wezterm",
+  "workbench.editorAssociations": {
+    "*.ioc": "default"
+  },
+  "workbench.colorTheme": "Light 2026",
+  "workbench.startupEditor": "none",
+  "clangd.path": "/usr/bin/clangd",
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "chatgpt.followUpQueueMode": "steer",
+  "cmakeIntelliSense.enableCMakeToolsIntegration": false,
+  "workbench.editor.useModal": "off"
+}

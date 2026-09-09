@@ -1,0 +1,66 @@
+--- before/Code/User/settings.json
++++ Code/User/settings.json
+@@ -42,7 +42,8 @@
+   "terminal.integrated.cursorStyle": "line",
+   "update.showReleaseNotes": false,
+   "[cmake]": {
+-    "editor.defaultFormatter": "KylinIdeTeam.cmake-intellisence"
++    "editor.defaultFormatter": "KylinIdeTeam.cmake-intellisence",
++    "editor.formatOnSave": false
+   },
+   "files.associations": {
+     ".clangd": "yaml",
+@@ -107,10 +108,7 @@
+       ".continue/**/*.yaml"
+     ]
+   },
+-  "[yaml]": {
+-    "editor.defaultFormatter": "redhat.vscode-yaml"
+-  },
+-  "notebook.defaultFormatter": "xaver.clang-format",
++  "[yaml]": {},
+   "cSpell.userWords": [
+     "aiignore",
+     "Aldus",
+@@ -179,5 +177,40 @@
+   "cmake.configureOnEdit": false,
+   "cmake.automaticReconfigure": false,
+   "cmake.buildBeforeRun": false,
+-  "chatgpt.followUpQueueMode": "steer"
++  "chatgpt.followUpQueueMode": "steer",
++  "extensions.allowed": {
++    "*": true,
++    "chadalen.vscode-jetbrains-icon-theme": false,
++    "clemenspeters.format-json": false,
++    "continue.continue": false,
++    "dtoplak.vscode-glsllint": false,
++    "eamodio.gitlens": false,
++    "mcu-debug.debug-tracker-vscode": false,
++    "mcu-debug.memory-view": false,
++    "ms-python.debugpy": false,
++    "ms-python.python": false,
++    "ms-python.vscode-pylance": false,
++    "ms-python.vscode-python-envs": false,
++    "ms-vscode.cpptools": false,
++    "ms-vscode.cpptools-extension-pack": false,
++    "ms-vscode.cpptools-themes": false,
++    "ms-vscode.hexeditor": false,
++    "njqdev.vscode-python-typehint": false,
++    "oderwat.indent-rainbow": false,
++    "redhat.vscode-xml": false,
++    "redhat.vscode-yaml": false,
++    "repreng.csv": false,
++    "slevesque.shader": false,
++    "streetsidesoftware.code-spell-checker": false,
++    "xaver.clang-format": false,
++    "ms-vscode.cmake-tools": false,
++    "ms-vscode.cpp-devtools": false,
++    "github.copilot": false,
++    "github.copilot-chat": false,
++    "openai.chatgpt": true,
++    "vadimcn.vscode-lldb": true,
++    "llvm-vs-code-extensions.vscode-clangd": true,
++    "kylinideteam.cmake-intellisence": true
++  },
++  "cmakeIntelliSense.enableCMakeToolsIntegration": false
+ }

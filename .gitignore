@@ -1,0 +1,27 @@
+/*
+!btop/
+!htop/
+!nvim/
+!presets/
+!pulse/
+!scripts/
+!systemd/
+!wezterm/
+!Cursor/User/settings.json
+!Cursor/User/keybindings.json
+!Cursor/User/tasks.json
+!Cursor/User/snippets/
+!Cursor/User/snippets/**
+!.zshrc
+!mimeapps.list
+!user-dirs.dirs
+!user-dirs.locale
+
+# Track only portable VS Code preferences, not caches or authentication.
+!.gitignore
+!Code/
+Code/*
+!Code/User/
+Code/User/*
+!Code/User/settings.json
+!Code/User/keybindings.json

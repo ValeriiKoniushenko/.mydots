@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "name": "Nexium",
+      "path": "/home/valerii/workspace/Nexium"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "kylinideteam.cmake-intellisence",
+      "llvm-vs-code-extensions.vscode-clangd",
+      "openai.chatgpt",
+      "vadimcn.vscode-lldb"
+    ],
+    "unwantedRecommendations": [
+      "ms-vscode.cmake-tools",
+      "ms-vscode.cpptools-extension-pack"
+    ]
+  },
+  "settings": {},
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Nexium: TemplateGame (CodeLLDB; terminal build)",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder:Nexium}/build/bin/TemplateGame",
+        "cwd": "${workspaceFolder:Nexium}",
+        "args": []
+      },
+      {
+        "name": "Nexium: tests (CodeLLDB; terminal build)",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder:Nexium}/build/bin/Nexium_Tests",
+        "cwd": "${workspaceFolder:Nexium}",
+        "args": []
+      }
+    ]
+  }
+}
