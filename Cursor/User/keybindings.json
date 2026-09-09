@@ -319,4 +319,13 @@
         "key": "alt+u",
         "command": "editor.action.transformToUppercase",
     },
+    {
+        "key": "ctrl+i",
+        "command": "-composer.startComposerPrompt",
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-asciidoc.toggleItalic",
+        "when": "editorTextFocus && editorLangId == 'asciidoc'",
+    },
 ]

@@ -112,4 +112,7 @@
     "cursor.general.disableHttp2": true,
     "workbench.preferredLightColorTheme": "Visual Studio 2017 Light - C++",
     "workbench.agentsWindowButton.enabled": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
 }
