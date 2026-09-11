@@ -45,11 +45,9 @@
         "*.comp": "glsl",
         "*.nx*": "json",
     },
-    "workbench.layoutControl.enabled": false,
     "workbench.openInAgents.enabled": false,
     "workbench.browser.showInTitleBar": false,
     "workbench.navigationControl.enabled": false,
-    "window.commandCenter": false,
     "clangd.arguments": [
         "--background-index",
         "--clang-tidy",
@@ -170,7 +168,7 @@
     "workbench.editorAssociations": {
         "*.ioc": "default",
     },
-    "workbench.colorTheme": "Light 2026",
+    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
     "workbench.startupEditor": "none",
     "clangd.path": "/usr/bin/clangd",
     "github.copilot.nextEditSuggestions.enabled": false,
@@ -188,4 +186,8 @@
     "chatgpt.localeOverride": "en-US",
     "chatgpt.reviewDelivery": "detached",
     "animations.Enabled": true,
+    "extensions.ignoreRecommendations": true,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "explorer.confirmDragAndDrop": false,
 }
