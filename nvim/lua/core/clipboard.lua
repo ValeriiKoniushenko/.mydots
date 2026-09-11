@@ -149,11 +149,9 @@ local function native_spec()
     and vim.fn.executable("wl-copy") == 1
     and vim.fn.executable("wl-paste") == 1
   then
-    return provider_spec(
-      "wl-copy",
-      { "wl-copy", "--type", "text/plain" },
-      { "wl-paste", "--no-newline" }
-    )
+    -- wl-copy forks a process that owns the selection. Neovim's provider
+    -- manages that job asynchronously; waiting for it here would time out.
+    return "wl-copy"
   end
 
   if probe_x11("xsel") then
