@@ -54,7 +54,13 @@ local function run(cmd, opts)
     return nil, proc
   end
 
-  local result = proc:wait()
+  local wait_ok, result = pcall(proc.wait, proc)
+  if not wait_ok then
+    return nil, result
+  end
+  if not result then
+    return nil, "command timed out"
+  end
   if result.code ~= 0 then
     local err = (result.stderr and result.stderr ~= "" and result.stderr)
       or ("exit " .. tostring(result.code))
@@ -115,7 +121,10 @@ local function probe_x11(bin)
   if not ok then
     return false
   end
-  local result = proc:wait()
+  local wait_ok, result = pcall(proc.wait, proc)
+  if not wait_ok or not result then
+    return false
+  end
   -- Non-zero can mean "empty clipboard"; timeout / missing X is the failure.
   -- vim.system uses -1 / signal when killed by timeout.
   if result.signal and result.signal ~= 0 then
