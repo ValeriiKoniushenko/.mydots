@@ -132,6 +132,8 @@
         "cppcoreguidelines",
         "crtp",
         "DNEXIUM",
+        "endforeach",
+        "endfunction",
         "fdeps",
         "fmodules",
         "freetype",
@@ -157,7 +159,7 @@
         "std",
         "STREQ",
         "Valerii",
-        "vararg",
+        "vararg"
     ],
     "prettier.documentSelectors": [".json"],
     "prettier.endOfLine": "auto",
@@ -168,7 +170,7 @@
     "workbench.editorAssociations": {
         "*.ioc": "default",
     },
-    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
+    "workbench.colorTheme": "Light 2026",
     "workbench.startupEditor": "none",
     "clangd.path": "/usr/bin/clangd",
     "github.copilot.nextEditSuggestions.enabled": false,
@@ -190,4 +192,5 @@
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "explorer.confirmDragAndDrop": false,
+    "workbench.tree.indent": 16,
 }
