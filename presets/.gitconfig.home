@@ -31,3 +31,5 @@
 	b = branch
 	c = checkout
 	nuke = !rm -f .jrm/cache.data && find -name '*.generated.*' -delete && git submodule sync --recursive && git submodule update --init --recursive --remote
+	d = diff
+	s = status

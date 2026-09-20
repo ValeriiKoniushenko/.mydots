@@ -17,7 +17,7 @@
     "search.seedWithNearestWord": true,
     "workbench.editor.tabActionLocation": "left",
     "editor.formatOnSave": true,
-    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-light",
+    "workbench.iconTheme": "jetbrains-file-icon-theme-auto",
     "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
     "terminal.integrated.copyOnSelection": true,
@@ -45,9 +45,22 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.shellIntegration.history": 10000,
     "cursor.composer.queueMessageDefaultBehavior": "steer",
+    "clangd.path": "/usr/bin/clangd",
+    "clangd.arguments": [
+        "--background-index",
+        "--background-index-priority=low",
+        "--clang-tidy",
+        "--completion-style=detailed"
+    ],
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format",
         "editor.formatOnSave": true,
+        "editor.inlayHints.enabled": "on",
+        "editor.parameterHints.enabled": true,
+        "editor.semanticHighlighting.enabled": true,
+        "editor.suggest.preview": true,
+        "editor.suggestSelection": "first",
+        "editor.wordBasedSuggestions": "off"
     },
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format",
@@ -110,9 +123,10 @@
     "prettier.tabWidth": 4,
     "prettier.printWidth": 120,
     "cursor.general.disableHttp2": true,
-    "workbench.preferredLightColorTheme": "Visual Studio 2017 Light - C++",
+    "workbench.preferredLightColorTheme": "JetBrains Darcula Theme",
     "workbench.agentsWindowButton.enabled": false,
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
+    "window.density.editorTabHeight": "compact",
 }
