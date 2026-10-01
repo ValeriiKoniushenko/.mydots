@@ -9,7 +9,7 @@ import argparse
 import fnmatch
 import os
 
-MODEL = os.environ.get("GENMSG_MODEL", "gpt-4o-mini")
+MODEL = os.environ.get("GENMSG_MODEL", "gpt-5.6-luna")
 API_KEY = os.environ.get("OPENAI_API_KEY")
 API_URL = "https://api.openai.com/v1/chat/completions"
 MAX_OUTPUT_TOKENS_FILE = 150
@@ -113,8 +113,8 @@ def openai_chat(prompt, max_tokens):
     payload = json.dumps({
         "model": MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "temperature": TEMPERATURE,
-        "max_tokens": max_tokens,
+        # "temperature": TEMPERATURE,
+        # "max_tokens": max_tokens,
     }).encode()
 
     req = urllib.request.Request(
