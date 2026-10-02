@@ -12,7 +12,7 @@
     "cmake.configureOnEdit": false,
     "cmake.ctest.testExplorerIntegrationEnabled": false,
     "cmake.enableAutomaticKitScan": false,
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "editor.formatOnSaveMode": "file",
     "search.seedOnFocus": true,
     "search.seedWithNearestWord": true,
     "workbench.editor.tabActionLocation": "left",
@@ -50,7 +50,7 @@
         "--background-index",
         "--background-index-priority=low",
         "--clang-tidy",
-        "--completion-style=detailed"
+        "--completion-style=detailed",
     ],
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format",
@@ -60,7 +60,7 @@
         "editor.semanticHighlighting.enabled": true,
         "editor.suggest.preview": true,
         "editor.suggestSelection": "first",
-        "editor.wordBasedSuggestions": "off"
+        "editor.wordBasedSuggestions": "off",
     },
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format",
@@ -129,4 +129,5 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "window.density.editorTabHeight": "compact",
+    "workbench.editor.revealIfOpen": true,
 }
